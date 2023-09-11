@@ -13,7 +13,7 @@ export default async function page() {
 
   return (
     <div>
-      <Navbar />
+      content
     </div>
   );
 }
