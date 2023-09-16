@@ -1,9 +1,9 @@
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Footer from "@/components/footer";
-import Navbar from "@/components/navbar";
 import "./globals.css";
 config.autoAddCss = false;
 
@@ -25,8 +25,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <div>
           <Navbar />
-          {children}
-          <Footer />
+          <div className="flex flex-col min-h-screen">
+            <div className="grow">{children}</div>
+            <Footer />
+          </div>
         </div>
       </body>
     </html>
