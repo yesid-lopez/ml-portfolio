@@ -19,12 +19,10 @@ export default function Hero() {
             </h1>
           </div>
           <span className="text-xl font-mono md:pr-16">
-            I have experience building web applications and creating needs-based
-            testing strategies. I enjoy working in companies that allow me to
-            grow, learn, innovate and do research. I enjoy teaching others and
-            learning new things. Additionally, I have experience in MLOps
-            deploying models to production, scaling them, testing them, and
-            using cutting-edge devices for inference when it is needed.
+          Specializing in machine learning, I build web apps and design tailored testing strategies. 
+          Passionate about continuous learning, I thrive in dynamic environments fostering 
+          innovation and research. With expertise in MLOps, I deploy and scale ML models for 
+          optimal performance.
           </span>
         </div>
       </div>
