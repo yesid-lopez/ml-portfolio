@@ -8,18 +8,18 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const sections: NavbarItemType[] = [
-    { title: "Home", url: "/" },
+    { title: "Journey", url: "/journey" },
     { title: "Portfolio", url: "/portfolio" },
     { title: "Blog", url: "https://blog.yesidlopez.de/" },
-    { title: "Journey", url: "/journey" },
-    { title: "Contact", url: "/contact" },
   ];
 
   return (
     <nav className="bg-black p-4 sticky top-0 z-50">
       <div className="container mx-auto">
         <div className="flex justify-between items-center">
-          <div className="text-white font-bold text-xl">Yesid López</div>
+          <div className="text-white font-bold text-xl">
+            <a href="/">Yesid López</a>
+          </div>
           <div className="hidden md:block">
             <ul className="flex space-x-4">
               {sections.map((section) => (
