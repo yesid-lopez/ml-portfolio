@@ -14,7 +14,7 @@ const TimelineComponent = async () => {
           <ul>
             {jobs &&
               jobs.map((job: Journey) => (
-                <li>
+                <li key={job._id}>
                   <div className="timeline-content">
                     <h3 className="date">{formatDateString(job.startDate)} to {formatDateString(job.endDate)}</h3>
                     <h1>{job.title}</h1>
