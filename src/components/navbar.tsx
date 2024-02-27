@@ -9,7 +9,6 @@ export default function Navbar() {
 
   const sections: NavbarItemType[] = [
     { title: "Journey", url: "/journey" },
-    { title: "Portfolio", url: "/portfolio" },
     { title: "Blog", url: "https://blog.yesidlopez.de/" },
   ];
 
@@ -29,6 +28,7 @@ export default function Navbar() {
                   href={section.url}
                 />
               ))}
+              <ResumeItem />
             </ul>
           </div>
           <div className="md:hidden">
@@ -47,6 +47,7 @@ export default function Navbar() {
                   href={section.url}
                 />
               ))}
+              <ResumeItem />
             </ul>
           </div>
         )}
@@ -62,3 +63,11 @@ const NavbarItem = ({ title, href = "#" }: { title: string; href: string }) => (
     </a>
   </li>
 );
+
+const ResumeItem = () => {
+  return (
+    <li>
+      <a href="/resume.pdf">Resume</a>
+    </li>
+  );
+};
