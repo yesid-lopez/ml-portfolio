@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <PlausibleProvider
-          domain="ml.yesidlopez.de"
+          domain="yesidlopez.de"
           customDomain="https://plausible-analytics.yesidlopez.de"
         />
       </head>
