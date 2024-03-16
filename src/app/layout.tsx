@@ -1,5 +1,4 @@
-import Footer from "@/components/footer";
-import Navbar from "@/components/navbar";
+import { Navbar } from "@/components/navbar";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import type { Metadata } from "next";
@@ -31,10 +30,9 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <div>
-          <div className="flex flex-col min-h-screen">
+          <div className="relative w-full h-[100vh]">
             <Navbar />
-            <div className="grow bg-black">{children}</div>
-            <Footer />
+            <div className="grow w-full h-[100vh]">{children}</div>
           </div>
         </div>
       </body>

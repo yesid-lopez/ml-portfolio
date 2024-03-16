@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ml-portfolio
+  name: portfolio-service
+  namespace: yesid
+spec:
+  selector:
+    app: ml-portfolio
+  type: LoadBalancer
+  ports:
+    - port: 3000
+      protocol: TCP
+      targetPort: 3000
+

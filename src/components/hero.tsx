@@ -1,31 +1,39 @@
+"use client";
+
+import { useScroll, useTransform } from "framer-motion";
 import React from "react";
-import Image from "next/image";
+import { GoogleGeminiEffect } from "./ui/google-gemini-effect";
 
 export default function Hero() {
+  const ref = React.useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  const pathLengthFirst = useTransform(scrollYProgress, [0, 0.8], [0.2, 1.2]);
+  const pathLengthSecond = useTransform(scrollYProgress, [0, 0.8], [0.15, 1.2]);
+  const pathLengthThird = useTransform(scrollYProgress, [0, 0.8], [0.1, 1.2]);
+  const pathLengthFourth = useTransform(scrollYProgress, [0, 0.8], [0.05, 1.2]);
+  const pathLengthFifth = useTransform(scrollYProgress, [0, 0.8], [0, 1.2]);
+
   return (
-    <div className="grid md:grid-cols-3 p-10 sm:space-y-10 md:p-5 md:space-x-20 h-full md:h-[95vh]">
-      <div className="grid place-items-center">
-        <Image src="/hero.png" width={400} height={400} alt=""></Image>
-      </div>
-      <div className="md:col-span-2">
-        <div className="flex flex-col space-y-4 h-full justify-center">
-          <h1 className="mb-2 font-mono text-5xl text-gray-100 md:text-6xl">
-            I&apos;m Yesid <span className="text-3xl md:text-5xl"></span>{" "}
-            <br className="block md:hidden" />
-          </h1>
-          <div className="flex items-center w-max">
-            <h1 className=" w-full animate-typing overflow-hidden whitespace-nowrap border-r-8 border-r-white pr-5 text-4xl text-white font-mono">
-              AI Engineer
-            </h1>
-          </div>
-          <span className="text-xl font-mono md:pr-16">
-          Specializing in machine learning, I build web apps and design tailored testing strategies. 
-          Passionate about continuous learning, I thrive in dynamic environments fostering 
-          innovation and research. With expertise in MLOps, I deploy and scale ML models for 
-          optimal performance.
-          </span>
-        </div>
-      </div>
+    <div
+      className="h-[400vh] p-2 bg-black w-[full] dark:border dark:border-white/[0.1] rounded-md relative pt-40 overflow-clip"
+      ref={ref}
+    >
+      <GoogleGeminiEffect
+        title="Yesid López"
+        description="Specializing in machine learning, I build web apps and design tailored testing strategies. 
+        With expertise in MLOps, I deploy and scale ML models for optimal performance."
+        pathLengths={[
+          pathLengthFirst,
+          pathLengthSecond,
+          pathLengthThird,
+          pathLengthFourth,
+          pathLengthFifth,
+        ]}
+      />
     </div>
   );
 }

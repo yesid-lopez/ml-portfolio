@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ml-portfolio
+  namespace: yesid
+  labels:
+    app: ml-portfolio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ml-portfolio
+  template:
+    metadata:
+      labels:
+        app: ml-portfolio
+        name: ml-portfolio
+    spec:
+      containers:
+      - name: yesid-portfolio
+        image: docker.yesidlopez.de/portfolio:1.8
+        ports:
+        - containerPort: 3000
+        env:
+        - name: SANITY_PROJECT_ID
+          value: "zv6zquub"

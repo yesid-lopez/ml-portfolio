@@ -1,73 +1,19 @@
 "use client";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
-import { NavbarItemType } from "../types/navbar";
-
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const sections: NavbarItemType[] = [
-    { title: "Journey", url: "/journey" },
-    { title: "Blog", url: "https://blog.yesidlopez.de/" },
+import { IconHome, IconUser } from "@tabler/icons-react";
+import { FloatingNav } from "./ui/floating-navbar";
+export function Navbar() {
+  const navItems = [
+    {
+      name: "Home",
+      link: "/",
+      icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
+    },
+    {
+      name: "Journey",
+      link: "/journey",
+      icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
+    },
   ];
 
-  return (
-    <nav className="bg-black p-4 sticky top-0 z-50">
-      <div className="container mx-auto">
-        <div className="flex justify-between items-center">
-          <div className="text-white font-bold text-xl">
-            <a href="/">Yesid López</a>
-          </div>
-          <div className="hidden md:block">
-            <ul className="flex space-x-4">
-              {sections.map((section) => (
-                <NavbarItem
-                  key={section.title}
-                  title={section.title}
-                  href={section.url}
-                />
-              ))}
-              <ResumeItem />
-            </ul>
-          </div>
-          <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-white">
-              <FontAwesomeIcon icon={faBars} />
-            </button>
-          </div>
-        </div>
-        {isOpen && (
-          <div className="mt-4 md:hidden">
-            <ul className="flex flex-col space-y-2">
-              {sections.map((section) => (
-                <NavbarItem
-                  key={section.title}
-                  title={section.title}
-                  href={section.url}
-                />
-              ))}
-              <ResumeItem />
-            </ul>
-          </div>
-        )}
-      </div>
-    </nav>
-  );
+  return <FloatingNav navItems={navItems} />;
 }
-
-const NavbarItem = ({ title, href = "#" }: { title: string; href: string }) => (
-  <li>
-    <a href={href} className="text-white hover:text-gray-300">
-      {title}
-    </a>
-  </li>
-);
-
-const ResumeItem = () => {
-  return (
-    <li>
-      <a href="/resume.pdf">Resume</a>
-    </li>
-  );
-};

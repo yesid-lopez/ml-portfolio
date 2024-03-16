@@ -1,35 +1,48 @@
-import React from "react";
-import "./timeline.css";
 import { getJobs } from "../../lib/journey";
-import { formatDateString } from "../../utils/dateFormat";
 import { Journey } from "../../types/journey";
+import { formatDateString } from "../../utils/dateFormat";
+import { JourneyTitle } from "./journey-title";
+import "./timeline.css";
 
-const TimelineComponent = async () => {
-  const jobs = await getJobs();
-
+const Page = () => {
   return (
     <>
-      <div className="container-timeline">
-        <div className="timeline">
-          <ul>
-            {jobs &&
-              jobs.map((job: Journey) => (
-                <li key={job._id}>
-                  <div className="timeline-content">
-                    <h3 className="date">{formatDateString(job.startDate)} to {formatDateString(job.endDate)}</h3>
-                    <h1>{job.title}</h1>
-                    <h1>{job.company}</h1>
-                    <p>
-                      {job.description}
-                    </p>
-                  </div>
-                </li>
-              ))}
-          </ul>
+      <div className="dark:bg-black bg-white dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative flex items-center justify-center">
+        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+        <div className="w-full">
+          <JourneyTitle></JourneyTitle>
+          <div className="container-timeline">
+            <Timeline></Timeline>
+          </div>
         </div>
       </div>
     </>
   );
 };
 
-export default TimelineComponent;
+const Timeline = async () => {
+  const jobs = await getJobs();
+
+  return (
+    <div className="timeline">
+      <ul>
+        {jobs &&
+          jobs.map((job: Journey) => (
+            <li key={job._id}>
+              <div className="timeline-content">
+                <h3 className="date">
+                  {formatDateString(job.startDate)} to{" "}
+                  {formatDateString(job.endDate)}
+                </h3>
+                <h1>{job.title}</h1>
+                <h1>{job.company}</h1>
+                <p>{job.description}</p>
+              </div>
+            </li>
+          ))}
+      </ul>
+    </div>
+  );
+};
+
+export default Page;
