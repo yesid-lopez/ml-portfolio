@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: yesid-portfolio
-        image: docker.yesidlopez.de/portfolio:1.9
+        image: docker.yesidlopez.de/portfolio:1.10
         ports:
         - containerPort: 3000
         env:
