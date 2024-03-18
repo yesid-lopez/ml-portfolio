@@ -28,7 +28,7 @@ export default function RootLayout({
           customDomain="https://plausible-analytics.yesidlopez.de"
         />
       </head>
-      <body className={inter.className}>
+      <body className="bg-black">
         <div>
           <div className="relative w-full h-[100vh]">
             <Navbar />
