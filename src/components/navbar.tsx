@@ -1,5 +1,10 @@
 "use client";
-import { IconHome, IconUser } from "@tabler/icons-react";
+import {
+  IconBriefcase,
+  IconFileText,
+  IconHome,
+  IconMapPin,
+} from "@tabler/icons-react";
 import { FloatingNav } from "./ui/floating-navbar";
 export function Navbar() {
   const navItems = [
@@ -11,12 +16,17 @@ export function Navbar() {
     {
       name: "Journey",
       link: "/journey",
-      icon: <IconUser className="h-4 w-4 text-white" />,
+      icon: <IconMapPin className="h-4 w-4 text-white" />,
+    },
+    {
+      name: "Portfolio",
+      link: "/portfolio",
+      icon: <IconBriefcase className="h-4 w-4 text-white" />,
     },
     {
       name: "Blog",
       link: "https://blog.yesidlopez.de",
-      icon: <IconUser className="h-4 w-4 text-white" />,
+      icon: <IconFileText className="h-4 w-4 text-white" />,
     },
   ];
 

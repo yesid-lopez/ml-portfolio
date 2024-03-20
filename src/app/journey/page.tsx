@@ -11,7 +11,7 @@ const Page = () => {
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
         <div className="w-full">
           <JourneyTitle></JourneyTitle>
-          <div className="container-timeline">
+          <div className="container-timeline md:pt-20 pt-5">
             <Timeline></Timeline>
           </div>
         </div>
