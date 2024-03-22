@@ -18,11 +18,11 @@ export function Navbar() {
       link: "/journey",
       icon: <IconMapPin className="h-4 w-4 text-white" />,
     },
-    {
-      name: "Portfolio",
-      link: "/portfolio",
-      icon: <IconBriefcase className="h-4 w-4 text-white" />,
-    },
+    // {
+    //   name: "Portfolio",
+    //   link: "/portfolio",
+    //   icon: <IconBriefcase className="h-4 w-4 text-white" />,
+    // },
     {
       name: "Blog",
       link: "https://blog.yesidlopez.de",
