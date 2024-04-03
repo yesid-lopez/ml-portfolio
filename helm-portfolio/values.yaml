@@ -3,4 +3,4 @@ namespace: yesid
 
 image:
   repository: docker.yesidlopez.de/portfolio
-  tag: "1.13"
+  tag: "1.14"
