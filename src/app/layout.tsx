@@ -2,8 +2,8 @@ import { Navbar } from "@/components/navbar";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import type { Metadata } from "next";
-import PlausibleProvider from "next-plausible";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 config.autoAddCss = false;
 
@@ -20,14 +20,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const isProd = process.env.NODE_ENV === "production";
+
   return (
     <html lang="en">
-      <head>
-        <PlausibleProvider
-          domain="yesidlopez.de"
-          customDomain="https://plausible-analytics.yesidlopez.de"
+      {isProd && (
+        <Script
+          defer
+          src="https://umami.yesidlopez.de/umami"
+          data-website-id="cc488d99-4c4a-4c71-bdcd-7c5330ff15ef"
         />
-      </head>
+      )}
       <body className="bg-black">
         <div>
           <div className="relative w-full h-[100vh]">
