@@ -24,3 +24,5 @@ spec:
         env:
         - name: SANITY_PROJECT_ID
           value: "zv6zquub"
+      imagePullSecrets:
+        - name: my-registry-secret
