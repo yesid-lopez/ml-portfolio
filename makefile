@@ -1,5 +1,5 @@
 build:
-	docker build -t docker.yesidlopez.de/portfolio:$(VERSION) --target production .
+	docker build --platform linux/amd64 -t docker.yesidlopez.de/portfolio:$(VERSION) --target production .
 
 publish: build
 publish:
