@@ -1,9 +1,10 @@
-build:
-	docker build --platform linux/amd64 -t docker.yesidlopez.de/portfolio:$(VERSION) --target production .
+PUSH_FLAG ?=
 
-publish: build
+build:
+	docker buildx build --platform linux/amd64,linux/arm64 -t registry.yesidlopez.de/portfolio:$(IMAGE_TAG) --target production $(PUSH_FLAG) .
+
 publish:
-	docker push docker.yesidlopez.de/portfolio:$(VERSION)
+	$(MAKE) build PUSH_FLAG=--push
 
 deploy:
 	kubectl --kubeconfig ~/kubeconfig apply -f infra/deployment.yaml

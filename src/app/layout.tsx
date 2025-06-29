@@ -28,7 +28,7 @@ export default function RootLayout({
         <Script
           defer
           src="https://umami.yesidlopez.de/umami"
-          data-website-id="cc488d99-4c4a-4c71-bdcd-7c5330ff15ef"
+          data-website-id="2ac63faa-72fd-401d-be7e-f2d9e8a4bdc7"
         />
       )}
       <body className="bg-black">
