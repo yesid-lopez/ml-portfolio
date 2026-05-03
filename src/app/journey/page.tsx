@@ -11,9 +11,19 @@ export const metadata: Metadata = {
 
 const highlights = [
   "AI engineering",
-  "Machine learning systems",
-  "Production delivery",
+  "Voice agents",
+  "MLOps at scale",
+  "Production ML",
+  "RAG products",
 ];
+
+const categoryLabels: Record<NonNullable<Journey["category"]>, string> = {
+  work: "Work",
+  project: "Project",
+  education: "Education",
+  paper: "Research",
+  award: "Award",
+};
 
 const Page = () => {
   return (
@@ -32,9 +42,9 @@ const Page = () => {
             Journey
           </h1>
           <p className="mt-6 text-base leading-8 text-slate-300 sm:text-lg">
-            A timeline of the roles, teams, and problems that shaped how I
-            build reliable AI-powered products — from experimentation to
-            production-ready systems.
+            A timeline of the roles, projects, research, and hackathon wins that
+            shaped how I build reliable AI-powered products — from voice agents
+            and RAG applications to production ML platforms.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -85,8 +95,13 @@ const Timeline = async () => {
 
               <article className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-2xl shadow-blue-950/20 backdrop-blur transition hover:-translate-y-1 hover:border-blue-300/30 hover:bg-white/[0.06] sm:p-7">
                 <p className="text-sm font-medium uppercase tracking-[0.2em] text-blue-300">
-                  {formatDateString(job.startDate)} — {formatDateString(job.endDate)}
+                  {formatDateString(job.startDate)} — {job.endDate ? formatDateString(job.endDate) : "Present"}
                 </p>
+                {job.category ? (
+                  <span className="mt-4 inline-flex rounded-full border border-blue-300/20 bg-blue-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-blue-200">
+                    {categoryLabels[job.category]}
+                  </span>
+                ) : null}
                 <h2 className="mt-4 text-2xl font-semibold text-white">
                   {job.title}
                 </h2>
@@ -96,6 +111,30 @@ const Timeline = async () => {
                 <p className="mt-5 text-sm leading-7 text-slate-400 sm:text-base">
                   {job.description}
                 </p>
+
+                {job.highlights?.length ? (
+                  <ul className="mt-5 space-y-3 text-sm leading-6 text-slate-300">
+                    {job.highlights.map((highlight) => (
+                      <li key={highlight} className="flex gap-3">
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-300" />
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+
+                {job.tools?.length ? (
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {job.tools.map((tool) => (
+                      <span
+                        key={tool}
+                        className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-xs text-slate-300"
+                      >
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
               </article>
             </li>
           );
