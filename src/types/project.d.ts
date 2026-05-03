@@ -1,11 +1,12 @@
 export type ProjectType = {
+  _id: string;
   title: string;
   description: string;
-  area: string;
+  area?: string;
   url: string;
-  cover: {
+  cover?: {
     asset: {
       url: string;
     };
-  }
-}
+  };
+};
