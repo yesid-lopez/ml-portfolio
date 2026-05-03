@@ -1,6 +1,38 @@
 import { ProjectType } from "@/types/project";
 import client from "./sanity.client";
 
+const photoFolioProjectEnhancement: Pick<
+  ProjectType,
+  "title" | "description" | "area" | "impact" | "tools"
+> = {
+  title: "PhotoFolio — Photography Portfolio Platform",
+  description:
+    "Built a modern photography portfolio experience to showcase visual work with fast navigation, responsive layouts, and a polished project presentation layer.",
+  area: "Frontend / Creative Portfolio",
+  impact:
+    "Demonstrates product-minded frontend engineering through a real, public-facing portfolio project with strong visual presentation.",
+  tools: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Sanity", "Responsive Design"],
+};
+
+const isPhotoFolioProject = (project: ProjectType) => {
+  const normalizedTitle = project.title.toLowerCase().replace(/\s|-/g, "");
+
+  return normalizedTitle.includes("photofolio") || normalizedTitle.includes("fotofolio");
+};
+
+const enrichProject = (project: ProjectType) => {
+  if (!isPhotoFolioProject(project)) {
+    return project;
+  }
+
+  return {
+    ...project,
+    ...photoFolioProjectEnhancement,
+    url: project.url,
+    cover: project.cover,
+  };
+};
+
 const resumeProjects: ProjectType[] = [
   {
     _id: "ml-automation-platform-kubeflow",
@@ -90,10 +122,11 @@ export const getProjects = async () => {
     }
   `);
 
-  const sanityProjectIds = new Set(projects.map((project) => project._id));
+  const enrichedProjects = projects.map(enrichProject);
+  const sanityProjectIds = new Set(enrichedProjects.map((project) => project._id));
   const missingResumeProjects = resumeProjects.filter(
     (project) => !sanityProjectIds.has(project._id)
   );
 
-  return [...projects, ...missingResumeProjects];
+  return [...enrichedProjects, ...missingResumeProjects];
 };
