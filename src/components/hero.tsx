@@ -3,7 +3,20 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-const skills = ["Python", "PyTorch", "MLOps", "Kubernetes", "AWS", "LLMOps"];
+const skills = [
+  "Python",
+  "PyTorch",
+  "Machine Learning",
+  "AI Products",
+  "AWS",
+  "LLMOps",
+];
+
+const socialLinks = [
+  { label: "GitHub", href: "https://github.com/yesid-lopez" },
+  { label: "Blog", href: "https://blog.yesidlopez.de" },
+  { label: "Journey", href: "/journey" },
+];
 
 export default function Hero() {
   return (
@@ -48,8 +61,9 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.24 }}
           className="mt-7 max-w-3xl text-base leading-8 text-slate-300 sm:text-xl"
         >
-          I design, deploy, and scale AI-powered applications with production-ready
-          ML pipelines, cloud-native infrastructure, and reliable MLOps practices.
+          I design and build AI-powered applications, machine learning systems,
+          and data-driven products — from model development to reliable
+          user-facing deployment.
         </motion.p>
 
         <motion.div
@@ -86,6 +100,38 @@ export default function Hero() {
               {skill}
             </span>
           ))}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.54 }}
+          className="mt-10 flex flex-wrap items-center justify-center gap-5 text-sm text-slate-400"
+          aria-label="Contact and social links"
+        >
+          {socialLinks.map((link) => {
+            const isExternal = link.href.startsWith("http");
+
+            return isExternal ? (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition hover:text-blue-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-300"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="transition hover:text-blue-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-300"
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </motion.div>
       </section>
     </main>
