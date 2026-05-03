@@ -39,7 +39,7 @@ export default function Hero() {
           transition={{ duration: 0.65, delay: 0.14 }}
           className="max-w-5xl bg-gradient-to-br from-white via-slate-100 to-blue-200 bg-clip-text text-4xl font-bold leading-tight text-transparent sm:text-6xl lg:text-7xl"
         >
-          AI Engineer | ML Engineer | MLOps Engineer
+          AI Engineer | ML Engineer
         </motion.h1>
 
         <motion.p

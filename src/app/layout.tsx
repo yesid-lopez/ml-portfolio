@@ -10,9 +10,9 @@ config.autoAddCss = false;
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Yesid López | AI Engineer & MLOps Engineer",
+  title: "Yesid López | AI Engineer & ML Engineer",
   description:
-    "Portfolio of Yesid López, AI Engineer, ML Engineer, and MLOps Engineer building production-ready AI systems.",
+    "Portfolio of Yesid López, AI Engineer and ML Engineer building production-ready AI systems.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
