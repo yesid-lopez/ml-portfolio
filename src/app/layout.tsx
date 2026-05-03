@@ -9,11 +9,58 @@ config.autoAddCss = false;
 
 const inter = Inter({ subsets: ["latin"] });
 
+const siteUrl = "https://www.yesidlopez.de";
+const title = "Yesid López | AI Engineer & ML Engineer";
+const description =
+  "Portfolio of Yesid López, AI Engineer and ML Engineer building production-ready AI systems, machine learning applications, and data-driven products.";
+
 export const metadata: Metadata = {
-  title: "Yesid López | AI Engineer & ML Engineer",
-  description:
-    "Portfolio of Yesid López, AI Engineer and ML Engineer building production-ready AI systems.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: title,
+    template: "%s | Yesid López",
+  },
+  description,
+  applicationName: "Yesid López Portfolio",
+  authors: [{ name: "Yesid López", url: siteUrl }],
+  creator: "Yesid López",
+  alternates: {
+    canonical: "/",
+  },
   icons: [{ rel: "icon", url: "/favicon.ico" }],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName: "Yesid López Portfolio",
+    title,
+    description,
+    images: [
+      {
+        url: "/hero.png",
+        width: 1200,
+        height: 630,
+        alt: "Yesid López portfolio preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/hero.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 export default function RootLayout({
