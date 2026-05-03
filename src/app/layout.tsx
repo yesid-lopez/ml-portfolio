@@ -10,8 +10,9 @@ config.autoAddCss = false;
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Yesid Lopez",
-  description: "Yesid Lopez Portfolio",
+  title: "Yesid López | AI Engineer & ML Engineer",
+  description:
+    "Portfolio of Yesid López, AI Engineer and ML Engineer building production-ready AI systems.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
@@ -31,13 +32,9 @@ export default function RootLayout({
           data-website-id="2ac63faa-72fd-401d-be7e-f2d9e8a4bdc7"
         />
       )}
-      <body className="bg-black">
-        <div>
-          <div className="relative w-full h-[100vh]">
-            <Navbar />
-            <div className="grow w-full h-[100vh]">{children}</div>
-          </div>
-        </div>
+      <body className={`${inter.className} bg-slate-950 text-white antialiased`}>
+        <Navbar />
+        {children}
       </body>
     </html>
   );
