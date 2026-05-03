@@ -22,8 +22,9 @@ export default async function Page() {
             Selected AI and ML projects
           </h1>
           <p className="mt-5 text-base leading-8 text-slate-300 sm:text-lg">
-            A curated set of production-minded AI applications, machine learning
-            systems, and data-driven products.
+            A curated set of AI applications, machine learning systems, MLOps
+            platforms, and data products based on real production experience and
+            selected research work.
           </p>
         </div>
 
