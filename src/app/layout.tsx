@@ -29,7 +29,7 @@ export default function RootLayout({
         <Script
           defer
           src="https://umami.yesidlopez.de/umami"
-          data-website-id="2ac63faa-72fd-401d-be7e-f2d9e8a4bdc7"
+          data-website-id="8277ad40-9ba5-4f1f-bae7-f1d7bd9dae38"
         />
       )}
       <body className={`${inter.className} bg-slate-950 text-white antialiased`}>
