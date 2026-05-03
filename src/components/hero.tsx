@@ -14,7 +14,6 @@ const skills = [
 
 const socialLinks = [
   { label: "GitHub", href: "https://github.com/yesid-lopez" },
-  { label: "Blog", href: "https://blog.yesidlopez.de" },
   { label: "Journey", href: "/journey" },
 ];
 
