@@ -14,6 +14,7 @@ const skills = [
 
 const socialLinks = [
   { label: "GitHub", href: "https://github.com/yesid-lopez" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/yesid-lopez/" },
   { label: "Journey", href: "/journey" },
 ];
 
@@ -78,10 +79,13 @@ export default function Hero() {
             View Projects
           </Link>
           <a
-            href="/resume.pdf"
+            href="/yesid-lopez-resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Yesid López resume PDF in a new tab"
             className="rounded-full border border-white/15 bg-white/[0.04] px-7 py-3 text-sm font-semibold text-white backdrop-blur transition hover:-translate-y-0.5 hover:border-blue-300/50 hover:bg-white/[0.08]"
           >
-            Download Resume
+            Open Resume
           </a>
         </motion.div>
 

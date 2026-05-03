@@ -1,5 +1,5 @@
 "use client";
-import { IconBriefcase, IconHome, IconMapPin } from "@tabler/icons-react";
+import { IconBriefcase, IconBrandLinkedin, IconHome, IconMapPin } from "@tabler/icons-react";
 import { FloatingNav } from "./ui/floating-navbar";
 export function Navbar() {
   const navItems = [
@@ -17,6 +17,11 @@ export function Navbar() {
       name: "Portfolio",
       link: "/portfolio",
       icon: <IconBriefcase className="h-4 w-4 text-white" />,
+    },
+    {
+      name: "LinkedIn",
+      link: "https://www.linkedin.com/in/yesid-lopez/",
+      icon: <IconBrandLinkedin className="h-4 w-4 text-white" />,
     },
   ];
 
